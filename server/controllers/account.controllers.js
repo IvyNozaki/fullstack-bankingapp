@@ -10,14 +10,18 @@ const account_post = async (req, res) => {
     const newAccount = { acctName, balance };
 
     user.accounts.push(newAccount);
+    
+    user["totalBalance"] = parseInt(user["totalBalance"]) + parseInt(balance);
 
     user.markModified("accounts");
+    
+    user.markModified("totalBalance");
     
     const result = await user.save();
 
     res.status(200).json(result);
   } catch (err) {
-    res.status(400).json({ message: errors });
+    res.status(400).json({ message: err });
   }
 };
 

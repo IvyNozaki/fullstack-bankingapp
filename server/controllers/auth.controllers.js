@@ -20,7 +20,7 @@ const signup_post = async (req, res) => {
   try {
     // Create a new user
     const user = await User.create({ email, password, username, totalBalance });
-
+    
     // Create token with jwt
     const token = await createToken(user._id);
     

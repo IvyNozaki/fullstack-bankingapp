@@ -13,6 +13,8 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+  font-family: "Lato Bold";
+  color: rgb(0, 11, 90);
 }
 
 a:link {
@@ -20,9 +22,11 @@ a:link {
   text-shadow: none;
   color: rgba(0, 11, 90, 0.75);
 }
+
 a:visited {
   color: rgb(0, 11, 90);
 }
+
 a:hover {
   cursor: pointer;
   font-weight: bold;
@@ -36,16 +40,7 @@ h1 {
 .App {
   margin: 0;
   padding: 0;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Lato Bold";
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 11, 90);
+  width: 100%;
 }
 
 /* BANK LOGO */
@@ -65,11 +60,14 @@ h1 {
 /* HEADER & USER NAVIGATION */
 .header-container {
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 3rem;
+  font-size: 1.5rem;
 }
 
 .header-light {
@@ -92,7 +90,7 @@ h1 {
 .usernav-container {
   margin-top: 5px;
   min-width: 100px;
-  width: 30%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -113,9 +111,13 @@ h1 {
   padding-top: 5px;
 }
 
-.usernav-link:hover {
+.usernav-link button {
+  border: none;
+  background: #fff;
+}
+
+.usernav-link button:hover {
   cursor: pointer;
-  background: rgb(216, 177, 60);
 }
 
 .usernav-icons {
@@ -153,6 +155,8 @@ h1 {
 /* CARDS */
 .maincard {
   z-index: 6;
+  width: 100%;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
@@ -162,13 +166,12 @@ h1 {
 }
 
 .secondary-card {
-  width: 80vw;
   display: flex;
   justify-content: center;
   flex-flow: row nowrap;
-  margin-bottom: 50%;
+  margin-bottom: 20%;
   justify-content: space-evenly;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 }
 
 .mini-card {

@@ -6,17 +6,16 @@ import Services from "../Services/services";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup"
-import CreateAcct from "../CreateAccount/createaccount"
+import CreateAcct from "../CreateAccount/CreateAccount"
 import Withdraw from "../Withdraw/withdraw"
 import Deposit from "../Deposit/deposit"
 
 import { Route, Switch, Link, useHistory } from "react-router-dom";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 // images
 import banklogo from '../../assets/banklogo.svg';
 import profileicon from '../../assets/profile.icon.svg';
-import settingsicon from '../../assets/settings.icon.svg';
-import loginicon from '../../assets/login.icon.svg';
 import logouticon from '../../assets/logout.icon.svg';
 
 const Nav = () => {
@@ -34,56 +33,48 @@ const Nav = () => {
       <div className="App">
         <header className="header-container">
           <Link to="/">
-            <h1 className="bank-title">Piggy Bank</h1>
+            <h1 className="bank-title">PiggyBank</h1>
           </Link>
 
           <div className="nav-container">
-            <div className="usernav-container">
-              <div className="usernav-link">
-                <Link to="/profile">
-                  <acronym title="Profile">
-                    <img src={profileicon} className="usernav-icons" alt="profileicon"/>
-                  </acronym>
-                </Link>
-              </div>
-              <div className="usernav-link">
-                <Link to="/settings">
-                  <acronym title="Settings">
-                    <img src={settingsicon} className="usernav-icons" alt="settingsicon"/>
-                  </acronym>
-                </Link>
-              </div>
-              <div className="usernav-link">
-                <Link to="/login">
-                  <acronym title="Login">
-                    <img src={loginicon} className="usernav-icons" alt="loginicon"/>
-                  </acronym>
-                </Link>
-              </div>
-              <div className="usernav-link">
-                <button onClick={handleLogOut}>
-                  <acronym title="Logout">
-                    <img src={logouticon} className="usernav-icons" alt="logouticon"/>
-                  </acronym>
-                </button>
-              </div>
-            </div>
-
+            
+            {contextData.isAuth &&
+              <div className="usernav-container">
+                <div className="usernav-link">
+                  <button>
+                    <Link to="/profile">
+                      <acronym title="Profile">
+                        <img src={profileicon} className="usernav-icons" alt="profileicon"/>
+                      </acronym>
+                    </Link>
+                  </button>
+                </div>
+                <div className="usernav-link">
+                  <button onClick={handleLogOut}>
+                    <acronym title="Logout">
+                      <img src={logouticon} className="usernav-icons" alt="logouticon"/>
+                    </acronym>
+                  </button>
+                </div>
+              </div>}
+            
+            {!contextData.isAuth &&
             <div className="navbar-container">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
               <Link to="/services" className="nav-link">
                 Services
               </Link>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
               <Link to="/signup" className="nav-link">
-                Online Banking
+                Sign up
               </Link>
             </div>
+            }
 
           </div>
         </header>
-
+        
         <div className="maincard">
           <Switch>
             <Route path="/" exact
@@ -92,7 +83,7 @@ const Nav = () => {
             <Route path="/services" exact
               component={Services}
             />
-            <Route path="/profile" exact
+            <PrivateRoute path="/profile" exact
               component={Profile}
             />
             <Route path="/login" exact
@@ -101,18 +92,18 @@ const Nav = () => {
             <Route path="/signup" exact
               component={Signup}
             />
-            <Route path="/profile/account/create" exact
+            <PrivateRoute path="/profile/account/create" exact
               component={CreateAcct}
             />
-            <Route path="/profile/account/withdraw" exact
+            <PrivateRoute path="/profile/account/withdraw" exact
               component={Withdraw}
             />
-            <Route path="/profile/account/deposit" exact
+            <PrivateRoute path="/profile/account/deposit" exact
               component={Deposit}
             />
           </Switch>
         </div>
-      
+
         <div className="logo-container">
           <img src={banklogo} className="bank-logo" alt="banklogo" />
         </div>

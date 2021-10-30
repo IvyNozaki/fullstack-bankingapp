@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         ...prevState,
         ...data
       }));
-
+      
       localStorage.setItem("isLoggedIn", 1);
       localStorage.setItem("isAuth", 1);
       localStorage.setItem("userID", data["_id"]);

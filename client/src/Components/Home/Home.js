@@ -53,7 +53,7 @@ const Home = () => {
           </div>
           <button>Learn more</button>
         </div>
-
+      
       </div>
 
       <h2>Don't take it from us, here are what people have to say:</h2>
