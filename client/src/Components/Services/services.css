@@ -91,3 +91,13 @@
   padding: 5px 10px;
   font-size: 1.3rem;
 }
+
+.modal-h1 {
+  font-size: 30px;
+}
+.modal-h2 {
+  font-size: large;
+}
+.modal-p {
+  font-size: small;
+}

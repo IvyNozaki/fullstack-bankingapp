@@ -41,35 +41,46 @@ const Signup = () => {
   return (
     <form onSubmit={handleSignup} className={styles.signup}>
       <h1>SIGN UP</h1>
-      <label htmlFor="username">NAME:</label>
-      <input 
-        type="text" 
-        name="username"
-        value={username}
-        onChange={usernameInput}
-        autoComplete="off"
-        required
-      />
+      <div className={styles["field-box"]}>
+        <label htmlFor="username">NAME:</label>
+        <input 
+          type="text" 
+          name="username"
+          value={username}
+          onChange={usernameInput}
+          autoComplete="off"
+          required
+        />
+      </div>
 
-      <label htmlFor="email">EMAIL:</label>
-      <input 
-        type="email" 
-        name="email"
-        value={email}
-        onChange={emailInput}
-        autoComplete="off"
-        required
-      />
+      <div className={styles["field-box"]}>
+        <label htmlFor="email">EMAIL:</label>
+        <input 
+          type="email" 
+          name="email"
+          value={email}
+          onChange={emailInput}
+          autoComplete="off"
+          required
+        />
+      </div>
       
-      <label htmlFor="password">PASSWORD:</label>
-      <input 
-        type="password" 
-        name="password" 
-        value={password}
-        onChange={passwordInput}
-        autoComplete="off"
-        required
-      />
+      <div className={styles["field-box"]}>
+        <label htmlFor="password">PASSWORD:</label>
+        <input 
+          type="password" 
+          name="password" 
+          value={password}
+          onChange={passwordInput}
+          autoComplete="off"
+          required
+        />
+      </div>
+      
+      <label className={styles["form-control"]}>
+        <input type="checkbox" name="checkbox"/>
+        Agree to Terms & Conditions
+       </label>
 
       <input 
         className="submit-btn" 

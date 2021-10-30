@@ -9,7 +9,7 @@ const Profile = () => {
   const [userInfo, setUserInfo] = useState({});
 
   const contextData = useContext(AuthContext);
-
+  
   useEffect(() => {
     setUsername(contextData.userData.username);
     setUserInfo(contextData.userData);

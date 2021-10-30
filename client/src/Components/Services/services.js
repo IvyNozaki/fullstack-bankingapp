@@ -28,8 +28,21 @@ const Services = () => {
         <div class="modal" id="modal">
           <button class="close-button" id="close-button" onClick={handleClick}>&#215;</button>
           <div class="modal-guts">
-            <h1>Modal Example</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae expedita corrupti laudantium aperiam, doloremque explicabo ipsum earum dicta saepe delectus totam vitae ipsam doloribus et obcaecati facilis eius assumenda, cumque.</p>
+            <h1 className="modal-h1">BENEFITS INFORMATION</h1>
+            <h2 className="modal-h2">PIGGYBANK CARDS:</h2>
+            <p className="modal-p">PiggyBank cards works like a standard debit card but with all the perks. Don’t be limited by area, use anywhere with our interchangeable payment processors. Choose Visa or MasterCard* when requesting for a bankcard.  We do not limit our members to one card so go ahead and order both.
+            All PiggyBank cards are tied to the very first account you open but we won’t stop you there. Check out mobile banking to change which account your card is currently tied to. We offer realtime change status so you are never confused about when the changes have applied.
+            *All cards come as MasterCard unless requested otherwise. Cards can only be tied to one account at a time. Adding another card to your account will generate a new card number which differs from duplicate cards.</p>
+
+            <h2 className="modal-h2">PIGGYBANK+:</h2>
+            <p className="modal-p">Our PiggyBank+ program allows you to connect with your credit card/s to help consolidate your debt. We work with you to personalized a payment that fits your need. Personalized payment plans are flexible since life is unpredictable. Work with our team of highly trained advisors on how to get your life back on track.</p>
+
+            <h2 className="modal-h2">PIGGYTEEN:</h2>
+            <p className="modal-p">All PiggyTeen accounts come with our free PiggyCredit101 monthly subscription. PiggyCredit101 subscriptions offers a monthly statement that tracks account activity and how it affects credit. PiggyCredit101 can be cancelled and resubscribed at any time. *Standard mailing fees are covered by PiggyBank, since free means FREE. We also offer paperless option through mobile banking.
+            All PiggyTeen cards are personalized with your child’s legal name to make the experience as real as it should be. State issued IDs are required to open a PiggyTeen card account. Please see your state’s guidelines for obtaining a state issued ID for your child.</p>
+
+            <h2 className="modal-h2">DISCLAIMER:</h2>
+            <p className="modal-p">This website was created for a capstone project. The information provided above are not accurate or available for real world use.</p>
           </div>
         </div>
       </div>
@@ -59,8 +72,6 @@ const Services = () => {
       <div className="secondary-card servicecards-container">
         <div className="teencard-info">
           <img className="services-img" src={teencards} alt=""/>
-
-          {/* *All teencards are personalized with their name to make the experience as real as it is should be so a state issued ID is required to start a teen credit account. Please see your state's guidelines for obtaining a state issued ID for your child. A credit statement will be mailed each month with notes on how the account activity affects the credit score. *Standard mailing fees are covered by PiggyBank. */}
         </div>
         <h2 className="service-msg">We believe that credit knowledge should be taught prior to adulthood. Here we take a regular bank card and give it the benefits of a credit card. There is no debt scare as these cards only use what you've got. So go ahead and to get their credit journey <button onClick={handleClick}>today</button>.</h2>
       </div>

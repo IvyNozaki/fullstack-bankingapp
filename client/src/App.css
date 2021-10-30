@@ -70,11 +70,6 @@ h1 {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 3rem;
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 200;
-  background: white; */
 }
 
 .header-light {
@@ -149,6 +144,7 @@ h1 {
   font-weight: bolder;
   color: rgb(216, 177, 60);
 }
+
 .nav-link:hover {
   cursor: pointer;
   color: rgb(0, 11, 90);
@@ -160,7 +156,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
-  margin: auto;
+  margin: 0 auto;
   margin-bottom: 200px;
   align-items: center;
 }
@@ -190,49 +186,14 @@ h1 {
 }
 
 /* FORMS */
-
 form {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: left;
   border: 2px solid rgba(255, 255, 255, 0.45);
   border-top: 2px solid rgba(183, 215, 255, 0.35);
   border-left: 2px solid rgba(183, 215, 255, 0.35);
-  padding: 50px;
-  padding-top: 10px;
-  padding-bottom: 100px;
+  padding: 20px 50px;
   border-radius: 20px;
   background: rgba(183, 215, 255, 0.25);
   backdrop-filter: blur(6px);
-}
-
-label {
-  display: flex;
-  flex-flow: column;
-  margin-bottom: 30px;
-  font-size: large;
-}
-
-input,
-select {
-  height: 6vh;
-  width: 40vw;
-  align-self: center;
-  border-radius: 10px;
-  border: 2px solid rgb(255, 255, 255);
-  border-bottom: 2px solid rgba(183, 215, 255, 0.5);
-  border-right: 2px solid rgba(183, 215, 255, 0.5);
-}
-
-.submit-btn {
-  height: 6vh;
-  width: 20vw;
-  background: rgb(0, 11, 90);
-  color: white;
-  border: 2px solid rgba(174, 183, 255, 0.8);
-  border-bottom: 2px solid rgba(174, 183, 255, 0.25);
-  border-right: 2px solid rgba(174, 183, 255, 0.25);
 }
 
 .submit-btn:disabled {

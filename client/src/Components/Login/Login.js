@@ -36,26 +36,30 @@ const Login = () => {
   return (
     <form onSubmit={handleLogin} className={styles["login"]}>
       <h1>Login</h1>
-      <label htmlFor="email">EMAIL:</label>
-      <input 
-        type="email" 
-        name="email"
-        value={email}
-        onChange={emailInput}
-        autoComplete="off"
-        required
-      />
+      <div className={styles["field-box"]}>
+        <label htmlFor="email">EMAIL:</label>
+        <input 
+          type="email" 
+          name="email"
+          value={email}
+          onChange={emailInput}
+          autoComplete="off"
+          required
+        />
+      </div>
 
-      <label htmlFor="password">PASSWORD:</label>
-      <input 
-        type="password" 
-        name="password"
-        value={password}
-        onChange={passwordInput}
-        autoComplete="off"
-        required
-      />
-
+      <div className={styles["field-box"]}>
+        <label htmlFor="password">PASSWORD:</label>
+        <input 
+          type="password" 
+          name="password"
+          value={password}
+          onChange={passwordInput}
+          autoComplete="off"
+          required
+        />
+      </div>
+      
       <input 
         className="submit-btn" 
         type="submit" 
