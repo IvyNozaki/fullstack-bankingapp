@@ -9,6 +9,7 @@ import Signup from "../Signup/Signup"
 import CreateAcct from "../CreateAccount/CreateAccount"
 import Withdraw from "../Withdraw/withdraw"
 import Deposit from "../Deposit/deposit"
+import TransactionForm from "../TransactionForm/TransactionForm";
 
 import { Route, Switch, Link, useHistory } from "react-router-dom";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
@@ -98,8 +99,14 @@ const Nav = () => {
             <PrivateRoute path="/profile/account/withdraw" exact
               component={Withdraw}
             />
+            <PrivateRoute path="/profile/account/withdraw/:id" exact
+              component={TransactionForm}
+            />
             <PrivateRoute path="/profile/account/deposit" exact
               component={Deposit}
+            />
+            <PrivateRoute path="/profile/account/deposit/:id" exact
+              component={TransactionForm}
             />
           </Switch>
         </div>

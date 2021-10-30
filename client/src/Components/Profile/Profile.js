@@ -25,19 +25,19 @@ const Profile = () => {
             <h2>{`Total Funds: $${userInfo.totalBalance}`}</h2>
             <p>Let's go and play with what you've got!</p>
           </div>
-          {console.log(userInfo.accounts[0].balance)}
+
           <div className="secondary-card account-list">
-          {userInfo.accounts.map(acct => {
-            return (
-              <AccountCard 
-                key={acct["_id"]}
-                id={acct["_id"]}
-                acctName={acct.acctName}
-                balance={acct.balance}
-              />
-              )
-            }
-          )}
+            {userInfo.accounts.map(acct => {
+              return (
+                <AccountCard 
+                  key={acct["_id"]}
+                  id={acct["_id"]}
+                  acctName={acct.acctName}
+                  balance={acct.balance}
+                />
+                )
+              }
+            )}
 
             <Link to="/profile/account/create">
               <div className="mini-card account-card"> 

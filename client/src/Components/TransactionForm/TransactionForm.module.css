@@ -1,0 +1,55 @@
+.ca {
+  display: flex;
+  flex-direction: column;
+}
+
+.ca input {
+  margin: 2rem 0;
+}
+
+.ca input[type="submit"] {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(0, 11, 90);
+  color: white;
+  border: 2px solid rgba(174, 183, 255, 0.8);
+  border-bottom: 2px solid rgba(174, 183, 255, 0.25);
+  border-right: 2px solid rgba(174, 183, 255, 0.25);
+  font-size: 1.5rem;
+}
+
+.ca h3 {
+  text-align: center;
+}
+
+.ca p {
+  color: red;
+  margin-top: -20px;
+}
+
+.field-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-box input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgba(183, 215, 255, 0.5);
+  border-right: 2px solid rgba(183, 215, 255, 0.5);
+  font-size: 1.5rem;
+}
+
+.warning {
+  display: flex;
+  flex-direction: column;
+}
+
+.warning input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid red;
+  background: pink;
+  font-size: 1.5rem;
+}

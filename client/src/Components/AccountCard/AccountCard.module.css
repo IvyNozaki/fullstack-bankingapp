@@ -14,4 +14,5 @@
   min-width: 240px;
   padding: 15px;
   margin: 1rem;
+  z-index: 100;
 }
