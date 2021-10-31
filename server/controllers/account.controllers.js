@@ -110,8 +110,51 @@ const account_withdraw = async (req, res) => {
   }
 };
 
+// Account close
+const account_close = async (req, res) => {
+  const { acctID, id } = req.body; 
+  
+  try {
+    // Find user
+    const user = await User.findById(id);
+
+    // Get account index from accounts array
+    let acctIndex = 0;
+    let balance = 0;
+
+    for (let i = 0; i < user["accounts"].length; i++) {
+      if (user["accounts"][i]["_id"].equals(acctID)) {
+        acctIndex = i;
+        balance = user["accounts"][i]["balance"];
+      }
+    }
+    
+    // Save total balance
+    let newTotalBal = parseInt(user["totalBalance"]) - parseInt(balance);
+
+    // Update
+    user["accounts"].splice(acctIndex, 1);
+    
+    user["totalBalance"] = newTotalBal;
+    
+    // Mark modified
+    user.markModified("accounts");
+    
+    user.markModified("totalBalance");
+    
+    // Save
+    const result = await user.save();
+    
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+};
+
+
 module.exports = {
   account_post,
   account_deposit,
-  account_withdraw
+  account_withdraw,
+  account_close
 };

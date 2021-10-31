@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import addbtn from '../../assets/plus.png';
 import AccountCard from "../AccountCard/AccountCard";
+import styles from "./Profile.module.css";
 import "../Home/Home.css";
 
 const Profile = () => {
@@ -48,14 +49,14 @@ const Profile = () => {
             </Link>
           
           </div>
-
+          
           <div className="secondary-card dashboard-end">
             <h1>Check out your benefits</h1>
-            <button className="main-btn">CARDS</button>
-            <button className="main-btn">CREDIT</button>
-            <button className="main-btn">FETCH</button>
-            <p>Tell us what you really think about Piggy Bank 
-              <Link to="/" style={{fontWeight: "bold", opacity: "70%"}}>here</Link>.
+            <button className={styles["main-btn"]}>CARDS</button>
+            <button className={styles["main-btn"]}>CREDIT</button>
+            <button className={styles["main-btn"]}>FETCH</button>
+            <p>Tell us what you think about PiggyBank 
+              <Link to="/" style={{fontWeight: "bold", opacity: "70%"}}> here</Link>.
             </p>
           </div>
         </div>

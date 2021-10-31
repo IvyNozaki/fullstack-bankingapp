@@ -164,7 +164,6 @@
 }
 
 /* PROFILE */
-
 .dashboard {
   color: rgb(0, 11, 90);
   text-shadow: none;
@@ -211,7 +210,7 @@
 .main-btn {
   width: 150px;
   height: 50px;
-  background: rgb(227, 227, 227);
+  background: white;
   margin-bottom: 10px;
   color: rgb(0, 11, 90);
   border-radius: 5px;

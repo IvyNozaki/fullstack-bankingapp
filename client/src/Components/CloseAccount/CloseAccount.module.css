@@ -1,0 +1,38 @@
+.ca {
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(0, 11, 90);
+  color: white;
+  border: 2px solid rgba(174, 183, 255, 0.8);
+  border-bottom: 2px solid rgba(174, 183, 255, 0.25);
+  border-right: 2px solid rgba(174, 183, 255, 0.25);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.ca h3 {
+  text-align: center;
+}
+
+.ca p {
+  color: red;
+  margin-top: -20px;
+}
+
+.cancel {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(0, 11, 90);
+  color: white;
+  border: 2px solid rgba(174, 183, 255, 0.8);
+  background: cornflowerblue;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 1rem 0;
+}

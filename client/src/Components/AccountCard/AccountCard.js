@@ -5,11 +5,14 @@ import styles from "./AccountCard.module.css";
 const AccountCard = ({ id, acctName, balance }) => {
   const [deposit_url, setDeposit_Url] = useState("");
   const [withdraw_url, setWithdraw_Url] = useState("");
+  const [close_url, setClose_Url] = useState("");
 
   useEffect(() => {
     setDeposit_Url("/profile/account/deposit/" + id);
 
     setWithdraw_Url("/profile/account/withdraw/" + id);
+
+    setClose_Url("/profile/account/close/" + id);
   }, [id])
   
   return (
@@ -26,7 +29,11 @@ const AccountCard = ({ id, acctName, balance }) => {
           Withdraw
         </button>
       </Link>
-      <button className="main-btn closeacct-btn">CLOSE ACCOUNT</button>
+      <Link to={close_url}>
+        <button className="main-btn closeacct-btn">
+          CLOSE Account
+        </button>
+      </Link>
     </div>
   )
 };

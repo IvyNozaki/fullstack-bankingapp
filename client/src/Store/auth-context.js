@@ -6,7 +6,8 @@ const AuthContext = createContext({
   userData: {},
   setUserInfo: () => {},
   onCreateAcct: () => {},
-  onTransact:() => {},
+  onTransact: () => {},
+  onCloseAcct: () => {},
   onCheck: () => {},
   onAuth: () => {},
   onLogin: () => {},
@@ -230,6 +231,32 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
   };
+  
+  // Closing an account
+  const closeAcctHandler = async (acctID, id) => {
+    try {
+      const result = await fetch("/account/close", {
+        method: "POST",
+        body: JSON.stringify({ acctID, id }),
+        headers: { "Content-Type": "application/json" }
+      })
+      
+      const data = await result.json();
+      
+      setIsAuth(true);
+      setIsLoggedIn(true);
+      setUserData(prevState => ({
+        ...prevState,
+        ...data
+      }));
+
+      localStorage.setItem("isLoggedIn", 1);
+      localStorage.setItem("isAuth", 1);
+      localStorage.setItem("userID", data["_id"]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const authContextValue = {
     isAuth: isAuth,
@@ -238,6 +265,7 @@ export const AuthProvider = ({ children }) => {
     setUserInfo: setUserInfo,
     onCreateAcct: createAcctHandler,
     onTransact: transactionHandler,
+    onCloseAcct: closeAcctHandler,
     onCheck: getUserInfo,
     onAuth: authHandler,
     onLogin: loginHandler,

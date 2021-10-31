@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AuthContext from "../../Store/auth-context";
+
 // Components
 import Home from "../Home/Home";
 import Services from "../Services/services";
@@ -7,10 +8,10 @@ import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup"
 import CreateAcct from "../CreateAccount/CreateAccount"
-import Withdraw from "../Withdraw/withdraw"
-import Deposit from "../Deposit/deposit"
 import TransactionForm from "../TransactionForm/TransactionForm";
+import CloseAccount from "../CloseAccount/CloseAccount";
 
+// Router
 import { Route, Switch, Link, useHistory } from "react-router-dom";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
@@ -97,16 +98,22 @@ const Nav = () => {
               component={CreateAcct}
             />
             <PrivateRoute path="/profile/account/withdraw" exact
-              component={Withdraw}
+              component={TransactionForm}
             />
             <PrivateRoute path="/profile/account/withdraw/:id" exact
               component={TransactionForm}
             />
             <PrivateRoute path="/profile/account/deposit" exact
-              component={Deposit}
+              component={TransactionForm}
             />
             <PrivateRoute path="/profile/account/deposit/:id" exact
               component={TransactionForm}
+            />
+            <PrivateRoute path="/profile/account/close" exact
+              component={CloseAccount}
+            />
+            <PrivateRoute path="/profile/account/close/:id" exact
+              component={CloseAccount}
             />
           </Switch>
         </div>

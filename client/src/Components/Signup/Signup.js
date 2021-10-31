@@ -78,7 +78,7 @@ const Signup = () => {
       </div>
       
       <label className={styles["form-control"]}>
-        <input type="checkbox" name="checkbox"/>
+        <input type="checkbox" name="checkbox" required/>
         Agree to Terms & Conditions
        </label>
 
