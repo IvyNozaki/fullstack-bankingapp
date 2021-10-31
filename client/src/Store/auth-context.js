@@ -6,6 +6,7 @@ const AuthContext = createContext({
   userData: {},
   setUserInfo: () => {},
   onCreateAcct: () => {},
+  onTransact:() => {},
   onCheck: () => {},
   onAuth: () => {},
   onLogin: () => {},
@@ -152,6 +153,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Google login
   const googleLoginHandler = async (email, password) => {
     try {
       const result = await fetch("/login", {
@@ -176,6 +178,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Google Signup
   const googleSignupHandler = async (email, password) => {
     try {
       const result = await fetch("/signup", {
@@ -200,12 +203,41 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Deposit and Withdraw action
+  const transactionHandler = async (amount, tranType, acctID, id) => {
+    let transPath = "/account/" + tranType.toLowerCase();
+    
+    try {
+      const result = await fetch(transPath, {
+        method: "POST",
+        body: JSON.stringify({ amount, acctID, id }),
+        headers: { "Content-Type": "application/json" }
+      })
+      
+      const data = await result.json();
+      
+      setIsAuth(true);
+      setIsLoggedIn(true);
+      setUserData(prevState => ({
+        ...prevState,
+        ...data
+      }));
+
+      localStorage.setItem("isLoggedIn", 1);
+      localStorage.setItem("isAuth", 1);
+      localStorage.setItem("userID", data["_id"]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const authContextValue = {
     isAuth: isAuth,
     isLoggedIn: isLoggedIn,
     userData: userData,
     setUserInfo: setUserInfo,
     onCreateAcct: createAcctHandler,
+    onTransact: transactionHandler,
     onCheck: getUserInfo,
     onAuth: authHandler,
     onLogin: loginHandler,

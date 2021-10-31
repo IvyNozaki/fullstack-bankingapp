@@ -38,7 +38,7 @@ const Profile = () => {
                 )
               }
             )}
-
+            
             <Link to="/profile/account/create">
               <div className="mini-card account-card"> 
               <acronym title="Add Account">

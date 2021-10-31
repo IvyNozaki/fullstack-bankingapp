@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import styles from "./TransactionForm.module.css";
+import { Default } from 'react-awesome-spinners'
 
 const TransactionForm = () => {
   const [acctID, setAcctID] = useState("");
@@ -10,6 +11,7 @@ const TransactionForm = () => {
   const [balance, setBalance] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   const [notValid, setNotValid] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   
   const { id } = useParams();
   const location = useLocation();
@@ -39,8 +41,18 @@ const TransactionForm = () => {
 
     findBal();
   }, [id, location, contextData])
+  
+  let history = useHistory();
 
-  // let history = useHistory();
+  const clearState = () => {
+    setAcctID("");
+    setTranType("");
+    setAmount(0);
+    setBalance(0);
+    setErrorMsg("");
+    setNotValid(false);
+    setShowSuccess(false);
+  }
   
   const amountInput = (e) => {
     setAmount(e.target.value);
@@ -50,22 +62,26 @@ const TransactionForm = () => {
   
   const handleTransation = (e) => {
     e.preventDefault();
-    
-    console.table({ amount, tranType, acctID, balance });
 
     if (tranType === "Withdraw" && amount > balance) {
       setErrorMsg("Not enough funds in account");
       setNotValid(true);
     } 
 
-    // setAcctID("");
-    // setTranType("");
-    // setAmount(0);
-    // setBalance(0);
-    // history.push("/profile");
+    if (!notValid) {
+      contextData.onTransact(amount, tranType, acctID, localStorage.getItem("userID"));
+      setShowSuccess(true);
+
+      setTimeout(() => {
+        clearState();
+        history.push("/profile");
+      }, 1500);
+    }
   };
   
   return (
+    <>
+    {!showSuccess &&
     <form onSubmit={handleTransation} className={styles["ca"]}>
       <h1>{tranType}</h1>
       <h3>{`Current Balance: $${balance}`}</h3>
@@ -90,6 +106,17 @@ const TransactionForm = () => {
         value="Submit" 
       />
     </form>
+    }
+    
+    {showSuccess && 
+      <>
+        <h1>{`${tranType} Successful!`}</h1>
+        <Default 
+          color={"#b7d7ff80"}
+        />
+      </>
+    }
+    </>
   )
 };
 
