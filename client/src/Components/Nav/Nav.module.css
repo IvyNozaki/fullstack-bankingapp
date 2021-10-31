@@ -1,0 +1,11 @@
+.maincard {
+  z-index: 5;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  align-items: center;
+}

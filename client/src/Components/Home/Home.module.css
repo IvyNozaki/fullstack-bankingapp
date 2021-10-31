@@ -1,0 +1,8 @@
+.secondary-card {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  margin-bottom: 20%;
+  justify-content: space-evenly;
+}

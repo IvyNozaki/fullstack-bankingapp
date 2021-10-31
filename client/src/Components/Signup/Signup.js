@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import styles from "./Signup.module.css";
+import { GoogleLogin } from "react-google-login";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -37,6 +38,28 @@ const Signup = () => {
     setPassword('');
     setUsername("");
   };
+
+  const googleSuccess = async (res) => {
+    console.log(res)
+    const email = res?.profileObj.email;
+    const password = res?.tokenId;
+
+    let emailIndex = email.search("@") - 1;
+
+    let username = email.substring(0, emailIndex)
+    try {
+      const response = await contextData.onGLSignup(email, password, username);
+      
+      console.log(response);
+      
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const googleFailure = (err) => console.log("Google sign in was not successful.", err);
 
   return (
     <form onSubmit={handleSignup} className={styles.signup}>
@@ -87,6 +110,22 @@ const Signup = () => {
         type="submit" 
         value="SUBMIT" 
       />
+      
+      <GoogleLogin
+        clientId="930065850363-9u7u3v4e6pr3vd7gv7vbqde5imn2b2rj.apps.googleusercontent.com"
+        render={(props) => (
+          <button 
+            className={styles["google-btn"]}
+            onClick={props.onClick}
+            disabled={props.disabled}
+            >
+            Sign in with Google
+          </button>
+        )}
+        onSuccess={googleSuccess}
+        onFailure={googleFailure}
+        cookiePolicy={"single_host_origin"}
+      />    
 
       <p>Already have an account? <Link to="/login">Login</Link></p>
     </form>

@@ -1,7 +1,8 @@
-.ca {
-  z-index: 100;
+.review {
   display: flex;
   flex-direction: column;
+  width: 800px;
+  z-index: 100;
   border: 2px solid rgba(255, 255, 255, 0.45);
   border-top: 2px solid rgba(183, 215, 255, 0.35);
   border-left: 2px solid rgba(183, 215, 255, 0.35);
@@ -11,11 +12,15 @@
   backdrop-filter: blur(6px);
 }
 
-.ca input {
+.review p {
+  text-align: center;
+}
+
+.review input {
   margin: 2rem 0;
 }
 
-.ca input[type="submit"] {
+.review input[type="submit"] {
   padding: 1rem;
   border-radius: 10px;
   background: rgb(0, 11, 90);
@@ -38,4 +43,20 @@
   border-bottom: 2px solid rgba(183, 215, 255, 0.5);
   border-right: 2px solid rgba(183, 215, 255, 0.5);
   font-size: 1.5rem;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.message textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgba(183, 215, 255, 0.5);
+  border-right: 2px solid rgba(183, 215, 255, 0.5);
+  font-size: 1.5rem;
+  height: 200px;
+  margin: 2rem 0;
 }

@@ -56,7 +56,7 @@ const Profile = () => {
             <button className={styles["main-btn"]}>CREDIT</button>
             <button className={styles["main-btn"]}>FETCH</button>
             <p>Tell us what you think about PiggyBank 
-              <Link to="/" style={{fontWeight: "bold", opacity: "70%"}}> here</Link>.
+              <Link to="/review" style={{fontWeight: "bold", opacity: "70%"}}> here</Link>.
             </p>
           </div>
         </div>

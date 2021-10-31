@@ -1,39 +1,69 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import piggybank from '../../assets/piggybank.png';
 import slide from '../../assets/slide.gif';
 import "./Home.css";
+import ReviewCard from "../ReviewCard/ReviewCard";
 
 const Home = () => {
+  const [reviews, setReviews] = useState([]);
+
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const getReviews = async () => {
+      try {
+        const result = await fetch("/reviews");
+  
+        const data = await result.json();
+  
+        setReviews(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getReviews();
+  }, [pathname])
+
   return (
-    <div>
+    <>
       <div className="secondary-card home-welcome">
         <img className="piggybank" src={piggybank} alt="piggybank"/>
+
         <div className="welcomemsg">
-          <p>Here at Piggy Bank we strive to provide service that can help you visually take charge of all your monetary flow. Start taking charge of your own person Piggy Bank today.
+          <p>
+            Here at Piggy Bank we strive to provide service that can help you visually take charge of all your monetary flow. Start taking charge of your own person Piggy Bank today.
           </p>
           <Link to="/signup">Get started</Link>
         </div>
+
       </div>
       
       <div className="secondary-card">
-          <div className="cashpile">
-            <p>"We believe that having a visual on your money helps promote growth."</p>
-          </div>
+        <div className="cashpile">
+          <p>"We believe that having a visual on your money helps promote growth."</p>
+        </div>
       </div>
-
+      
       <div className="secondary-card home-welcome">
-        <h1 className="welcomemsg2">We are a 100% judge-free zone and we welcome you to save for any, we mean ANY, occasion. When opening an account YOU choose a label that fits your need. So go ahead and create unlimited accounts for every need.</h1>
-        <img className="piggybank" src={slide} alt="" />
 
+        <div className="welcomemsg2">
+          <p>
+            We are a 100% judge-free zone and we welcome you to save for any, we mean ANY, occasion. When opening an account YOU choose a label that fits your need. So go ahead and create unlimited accounts for every need.
+          </p>
+        </div>
+        
+        <img className="piggybank" src={slide} alt="" />
       </div>
 
       <div className="secondary-card home-services">      
         <div className="mini-card">
           <h2>Bank Cards</h2>
           <div className="servicecard bankcard-img">
-            <p>Separate yourself from the hassle with our array of cards specialized for your needs and lifestyle.
-            </p>
+            <p>Separate yourself from the hassle with our array of cards specialized for your needs and lifestyle.</p>
           </div>
           <button>Learn more</button>
         </div>
@@ -53,47 +83,24 @@ const Home = () => {
           </div>
           <button>Learn more</button>
         </div>
+      </div>
       
-      </div>
-
       <h2>Don't take it from us, here are what people have to say:</h2>
-      <div className="secondary-card reviews">
-
-        <div className="scroll-container">
-          <div className="review-card review-card1">
-          </div>
-          <div className="review-card">
-            <h3>1 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>2 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>3 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>4 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>5 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>6 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-          <div className="review-card">
-            <h3>7 Illo excepturi!</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis neque consectetur illo officia natus! - John J.</p>
-          </div>
-
-        </div>
+      <div className="reviews-container">
+        <div className="review-card1"></div>
+        {reviews && reviews.map(review => {
+          return (
+            <ReviewCard 
+              title={ review.title } 
+              revName={ review.revName } 
+              message={ review.message }
+              key={ review.revName }
+            />
+          )
+          })
+        }
       </div>
-  </div>
+    </>
   );
 }
 

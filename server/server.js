@@ -11,6 +11,7 @@ const authRouter = require("./routes/auth.routes");
 const homeRouter = require("./routes/home.routes");
 const profileRouter = require("./routes/profile.routes");
 const accountRouter = require("./routes/account.routes");
+const reviewRouter = require("./routes/review.routes");
 
 // Dotenv
 require("dotenv").config({ path: path.join(rootDir, "secure", ".env") });
@@ -48,6 +49,8 @@ app.use(authRouter);
 app.use(profileRouter);
 
 app.use(accountRouter);
+
+app.use(reviewRouter);
 
 app.use(homeRouter);
 

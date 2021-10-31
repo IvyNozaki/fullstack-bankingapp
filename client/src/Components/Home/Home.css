@@ -1,47 +1,40 @@
 /* HOME CSS */
 .home-welcome {
-  border-radius: 10px;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
 .piggybank {
-  width: auto;
-  height: 30vw;
+  width: 50%;
 }
 
 .welcomemsg {
+  width: 50%;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   background: linear-gradient(to right, transparent, rgba(218, 235, 255, 0.85));
   backdrop-filter: blur(5px);
   border-radius: 0 20px 20px 0;
-  width: auto;
-  height: 30vw;
   text-align: right;
-  font-size: 2.5vw;
+  font-size: 1.9rem;
   font-weight: lighter;
-  padding-right: 15px;
-  padding-top: 5px;
+  padding: 15px;
 }
 
 .welcomemsg2 {
+  width: 50%;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   background: linear-gradient(to left, transparent, rgba(253, 255, 218, 0.75));
   backdrop-filter: blur(5px);
   border-radius: 20px 0 0 20px;
-  width: auto;
-  height: 30.2vw;
   text-align: left;
-  font-size: 2.2vw;
+  font-size: 1.9rem;
   font-weight: lighter;
-  padding-left: 15px;
-  padding-top: 5px;
+  padding: 15px;
 }
 
 /* HOMEPAGE - SERVICES */
@@ -128,10 +121,9 @@
 }
 
 /* REVIEWS */
-.reviews {
+.reviews-container {
   position: relative;
   bottom: 0;
-  border: 2px solid pink;
   margin-bottom: 0;
   display: flex;
   flex-flow: column nowrap;
@@ -141,25 +133,17 @@
   align-items: center;
 }
 
-.reviews:hover {
+.reviews-container:hover {
   overflow-y: scroll;
 }
 
-.reviews:hover::-webkit-scrollbar {
+.reviews-container:hover::-webkit-scrollbar {
   display: none;
-}
-
-.review-card {
-  text-align: center;
-  border: 1px solid green;
-  margin: 50px;
-  height: 450px;
-  width: 90%;
 }
 
 .review-card1 {
   border: 1px solid red;
-  margin-bottom: 3000px;
+  margin-bottom: 250px;
   height: 10px;
 }
 

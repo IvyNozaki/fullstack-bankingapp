@@ -20,7 +20,7 @@ const TransactionForm = () => {
 
   useEffect(() => {
     setAcctID(id);
-
+    
     const findTranType = () => {
       if (location.pathname.search("deposit") !== -1) {
         setTranType("Deposit")

@@ -41,7 +41,7 @@ const CloseAccount = () => {
 
     findAcctInfo();
   }, [id, contextData])
-
+  
   return (
     <form className={styles["ca"]}>
       <h1>Close account</h1>

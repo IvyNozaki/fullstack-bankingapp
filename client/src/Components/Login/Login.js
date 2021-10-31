@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
+import { GoogleLogin } from "react-google-login";
 import styles from "./Login.module.css";
 
 const Login = () => {
@@ -33,6 +34,21 @@ const Login = () => {
     setPassword("");
   };
 
+  const googleSuccess = async (res) => {
+    console.log(res);
+    const email = res?.profileObj.email;
+    const password = res?.tokenId;
+    
+    try {
+      const response = await contextData.onGlLogin(email, password);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const googleFailure = (err) => console.log("Google sign in was not successful.", err);
+
   return (
     <form onSubmit={handleLogin} className={styles["login"]}>
       <h1>Login</h1>
@@ -64,6 +80,22 @@ const Login = () => {
         className="submit-btn" 
         type="submit" 
         value="SUBMIT" 
+      />
+      
+      <GoogleLogin 
+        clientId="930065850363-9u7u3v4e6pr3vd7gv7vbqde5imn2b2rj.apps.googleusercontent.com"
+        render={(props) => (
+          <button
+            className={styles["google-btn"]}
+            onClick={props.onClick}
+            disabled={props.disabled}
+            >
+            Sign in with Google
+          </button>
+        )}
+        onSuccess={googleSuccess}
+        onFailure={googleFailure}
+        cookiePolicy={"single_host_origin"}
       />
 
       <p>Don't have an account? <Link to="/signup">Sign up</Link></p>

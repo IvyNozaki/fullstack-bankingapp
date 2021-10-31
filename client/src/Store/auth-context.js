@@ -14,7 +14,8 @@ const AuthContext = createContext({
   onSignup: () => {},
   onLogout: () => {},
   onGlLogin: () => {},
-  onGLSignup: () => {}
+  onGLSignup: () => {},
+  onCreateReview: () => {}
 });
 
 export const AuthProvider = ({ children }) => {
@@ -180,11 +181,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Google Signup
-  const googleSignupHandler = async (email, password) => {
+  const googleSignupHandler = async (email, password, username) => {
     try {
       const result = await fetch("/signup", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, username }),
         headers: { "Content-Type": "application/json" }
       })
       
@@ -258,6 +259,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Create new Review
+  const reviewHandler = async (revName, title, message) => {
+    try {
+      const result = await fetch("/reviews", {
+        method: "POST",
+        body: JSON.stringify({ revName, title, message }),
+        headers: { "Content-Type": "application/json" }
+      })
+
+      const data = await result.json();
+
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const authContextValue = {
     isAuth: isAuth,
     isLoggedIn: isLoggedIn,
@@ -272,7 +290,8 @@ export const AuthProvider = ({ children }) => {
     onSignup: signUpHandler,
     onLogout: logoutHandler,
     onGlLogin: googleLoginHandler,
-    onGLSignup: googleSignupHandler
+    onGLSignup: googleSignupHandler,
+    onCreateReview: reviewHandler
   };
   
   return (
