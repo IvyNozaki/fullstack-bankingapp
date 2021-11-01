@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import addbtn from '../../assets/plus.png';
 import AccountCard from "../AccountCard/AccountCard";
@@ -20,7 +20,7 @@ const Profile = () => {
   return (
     <>
       {username &&
-        <div>
+        <div className={styles["profile"]}>
           <div className="secondary-card dashboard">
             <h1>{`Welcome ${username}!`}</h1>
             <h2>{`Total Funds: $${userInfo.totalBalance}`}</h2>
@@ -50,13 +50,15 @@ const Profile = () => {
           
           </div>
           
-          <div className="secondary-card dashboard-end">
+          <div className={styles["benefits"]}>
             <h1>Check out your benefits</h1>
-            <button className={styles["main-btn"]}>CARDS</button>
-            <button className={styles["main-btn"]}>CREDIT</button>
-            <button className={styles["main-btn"]}>FETCH</button>
+
+              <Link to="/services" style={{fontWeight: "bold", opacity: "99%"}}>Card</Link>
+              <Link to="/services" style={{fontWeight: "bold", opacity: "99%"}}>Credit</Link>
+              <Link to="/services" style={{fontWeight: "bold", opacity: "99%"}}>Fetch</Link>
+
             <p>Tell us what you think about PiggyBank 
-              <Link to="/review" style={{fontWeight: "bold", opacity: "70%"}}> here</Link>.
+              <Link to="/review" style={{fontWeight: "bold", opacity: "70%", border: "none", background: "none", color: "rgb(216, 177, 60)"}}> here</Link>.
             </p>
           </div>
         </div>

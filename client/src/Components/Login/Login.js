@@ -7,6 +7,8 @@ import styles from "./Login.module.css";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errMsg, setErrMsg] = useState("");
+  const [showErr, setShowErr] = useState(false);
 
   let history = useHistory();
   
@@ -17,21 +19,28 @@ const Login = () => {
       history.push("/profile");
     }
   }, [history, contextData])
-
+  
   const emailInput = (e) => {
     setEmail(e.target.value);
+    setShowErr(false);
   };
   
   const passwordInput = (e) => {
     setPassword(e.target.value);
+    setShowErr(false);
   }
   
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    contextData.onLogin(email, password);
-    setEmail("");
-    setPassword("");
+    const result = await contextData.onLogin(email, password);
+    
+    if (result.login === "error") {
+      setShowErr(true);
+      setErrMsg("Incorrect email/password entered.")
+      setEmail("");
+      setPassword("");
+    }
   };
 
   const googleSuccess = async (res) => {
@@ -52,6 +61,9 @@ const Login = () => {
   return (
     <form onSubmit={handleLogin} className={styles["login"]}>
       <h1>Login</h1>
+
+      {showErr && <h3>{errMsg}</h3>}
+
       <div className={styles["field-box"]}>
         <label htmlFor="email">EMAIL:</label>
         <input 
@@ -79,7 +91,7 @@ const Login = () => {
       <input 
         className="submit-btn" 
         type="submit" 
-        value="SUBMIT" 
+        value="LOGIN" 
       />
       
       <GoogleLogin 

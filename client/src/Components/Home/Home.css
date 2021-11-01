@@ -229,19 +229,19 @@
 }
 
 .dashboard-end {
-  display: flex;
+  /* display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-bottom: 5%;
+  margin-bottom: 5%; */
 }
 
 .dashboard-btn {
-  width: 20vw;
+  /* width: 20vw;
   height: 5vh;
   margin-bottom: 20px;
-  font-size: large;
+  font-size: large; */
 }
 
 .learnmore-btn {

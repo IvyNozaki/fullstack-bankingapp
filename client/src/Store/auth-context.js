@@ -38,20 +38,27 @@ export const AuthProvider = ({ children }) => {
       })
       
       const data = await result.json();
-      
-      setIsAuth(true);
-      setIsLoggedIn(true);
-      setUserData(prevState => ({
-        ...prevState,
-        ...data
-      }));
-      
-      localStorage.setItem("isLoggedIn", 1);
-      localStorage.setItem("isAuth", 1);
-      localStorage.setItem("userID", data["_id"]);
-      localStorage.setItem("userData", JSON.stringify(data));
+
+      if (data.message !== "Incorrect email/password") {
+        setIsAuth(true);
+        setIsLoggedIn(true);
+        setUserData(prevState => ({
+          ...prevState,
+          ...data
+        }));
+        
+        localStorage.setItem("isLoggedIn", 1);
+        localStorage.setItem("isAuth", 1);
+        localStorage.setItem("userID", data["_id"]);
+        localStorage.setItem("userData", JSON.stringify(data));
+
+        return { login: "success" }
+      }
+
+      return { login: "error" }
+     
     } catch (err) {
-      console.log(err);
+      console.log("From auth:", err);
     }
   };
 
@@ -70,21 +77,27 @@ export const AuthProvider = ({ children }) => {
       })
       
       const data = await result.json();
+
+      console.log(data);
+
+      if (data.message !== "That email has already been registered.") {
+        setIsAuth(true);
+        setIsLoggedIn(true);
+        setUserData(prevState => ({
+          ...prevState,
+          ...data
+        }));
+        localStorage.setItem("isLoggedIn", 1);
+        localStorage.setItem("isAuth", 1);
+        localStorage.setItem("userID", data["_id"]);
+        
+        return { signup: "success" }
+      }
       
-      setIsAuth(true);
-      setIsLoggedIn(true);
-      setUserData(prevState => ({
-        ...prevState,
-        ...data
-      }));
-      localStorage.setItem("isLoggedIn", 1);
-      localStorage.setItem("isAuth", 1);
-      localStorage.setItem("userID", data["_id"]);
+      return { signup: "error" }
     } catch (err) {
       console.log(err);
     }
-    setIsAuth(true);
-    setIsLoggedIn(true);
   }
   
   // Logout Handler

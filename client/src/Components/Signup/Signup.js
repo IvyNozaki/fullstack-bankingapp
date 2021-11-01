@@ -8,6 +8,8 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [errMsg, setErrMsg] = useState("");
+  const [showErr, setShowErr] = useState(false);
   
   let history = useHistory();
 
@@ -27,20 +29,33 @@ const Signup = () => {
 
   const usernameInput = (e) => {
     setUsername(e.target.value);
+    setShowErr(false);
   };
 
   const emailInput = (e) => {
     setEmail(e.target.value);
+    setShowErr(false);
   };
   
   const passwordInput = (e) => {
     setPassword(e.target.value);
+    setShowErr(false);
   }
   
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    contextData.onSignup(email, password, username);
-    clearState();
+
+    console.table({ email, password, username });
+
+    const result = await contextData.onSignup(email, password, username);
+
+    console.log("from signup", result);
+
+    if (result.signup === "error") {
+      setShowErr(true);
+      setErrMsg("That email has already been registered.")
+      clearState();
+    }
   };
 
   const googleSuccess = async (res) => {
@@ -69,6 +84,9 @@ const Signup = () => {
     <>
       <form onSubmit={handleSignup} className={styles.signup}>
         <h1>Sign Up</h1>
+
+        {showErr && <h3>{errMsg}</h3>}
+
         <div className={styles["field-box"]}>
           <label htmlFor="username">NAME:</label>
           <input 
@@ -113,7 +131,7 @@ const Signup = () => {
         <input 
           className="submit-btn" 
           type="submit" 
-          value="SUBMIT" 
+          value="SIGN UP" 
         />
         
         <GoogleLogin

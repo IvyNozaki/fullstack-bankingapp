@@ -90,7 +90,7 @@ const Services = () => {
         <div className="mobile-info">
           <img className="services-img mobilebank-img" src={mobilebank} alt=""/>
         </div>
-        <h2 className="service-msg">Our service is strictly online which means there is no standard business hours or holidays. We work whereever you are. Click <button onClick={handleClick}>today</button> to learn more about mobile banking.</h2>
+        <h2 className="service-msg">Our service is strictly online which means there is no standard business hours or holidays. We work whereever you are. Click <button onClick={handleClick}>here</button> to learn more about mobile banking.</h2>
       </div>
 
     </div>

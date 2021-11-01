@@ -1,17 +1,26 @@
-.main-btn {
+.benefits {
+  z-index: 2;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits a {
   width: 50%;
-  padding: 1rem;
+  padding: 20px 0;
+  text-align: center;
+  margin: 10px auto;
   border-radius: 10px;
   background: rgb(0, 11, 90);
   color: white;
   border: 2px solid rgba(174, 183, 255, 0.8);
   border-bottom: 2px solid rgba(174, 183, 255, 0.25);
   border-right: 2px solid rgba(174, 183, 255, 0.25);
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
 }
 
-.main-btn:hover {
+.benefits a:hover {
   cursor: pointer;
   background: rgba(216, 177, 60, 0.85);
   border: 2px solid rgba(255, 255, 255, 0.5);

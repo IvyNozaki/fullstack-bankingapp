@@ -19,6 +19,10 @@
   margin: 2rem 0;
 }
 
+.signup h3 {
+  color: red;
+}
+
 .signup input[type="submit"],
 .google-btn {
   padding: 1rem;
@@ -61,7 +65,7 @@
 
 .form-control {
   font-family: system-ui, sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.1;
   display: grid;

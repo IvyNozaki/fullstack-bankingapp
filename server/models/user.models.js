@@ -79,11 +79,11 @@ userSchema.statics.login = async function(email, password) {
     if (auth) {
       return user
     }
-    console.log(password);
-    throw Error("Incorrect password");
+    
+    return { message: "Incorrect email/password" };
   }
 
-  throw Error("Incorrect email");
+  return { message: "Incorrect email/password" };
 };
 
 const User = model("user", userSchema);
