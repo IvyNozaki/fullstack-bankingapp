@@ -45,6 +45,23 @@ h3 {
   width: 100%;
 }
 
+.App::before {
+  content: "";
+  z-index: 0;
+  position: fixed;
+  top: 100px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100vh;
+  background-image: url("./assets/banklogo.svg");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 100% 100%;
+  opacity: 50%;
+}
+
 /* BANK LOGO */
 .logo-container {
   z-index: 1;
@@ -53,11 +70,12 @@ h3 {
   bottom: -80px;
 }
 
-.bank-logo {
+/* .bank-logo {
+  z-index: 1;
   height: 450px;
   width: 450px;
   opacity: 30%;
-}
+} */
 
 /* HEADER & USER NAVIGATION */
 .header-container {
@@ -87,20 +105,23 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
-  background: rgba(0, 11, 90, 0.2);
-  border-radius: 50%;
-  border: 1px solid rgb(0, 11, 90);
+  width: auto;
+  height: 20px;
 }
 
 .usernav-link img {
-  padding-top: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
 }
 
 .usernav-link button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-  background: #fff;
+  background: transparent;
 }
 
 .usernav-link button:hover {
@@ -112,7 +133,7 @@ h3 {
   width: 50px;
 }
 
-/* NAVIGATION */
+/* HOME NAVIGATION */
 .navbar-container {
   right: 0px;
   top: 40px;
@@ -120,7 +141,9 @@ h3 {
   min-width: 500px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  align-content: flex-end;
+  gap: 30px;
 }
 
 .nav-link {
@@ -153,7 +176,7 @@ h3 {
 } */
 
 .secondary-card {
-  z-index: 2;
+  z-index: 6;
   display: flex;
   justify-content: center;
   flex-flow: row nowrap;
@@ -162,10 +185,12 @@ h3 {
 }
 
 .mini-card {
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   background: rgba(218, 235, 255, 0.75);
   backdrop-filter: blur(4px);
   border-radius: 20px;
+  border-right: 2px solid rgba(183, 215, 255, 0.15);
+  border-bottom: 2px solid rgba(183, 215, 255, 0.15);
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;

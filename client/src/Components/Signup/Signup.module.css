@@ -31,6 +31,16 @@
   font-size: 1.5rem;
 }
 
+.signup input[type="submit"]:hover,
+.google-btn:hover {
+  cursor: pointer;
+  background: rgba(216, 177, 60, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(165, 165, 165, 0.25);
+  border-right: 2px solid rgba(165, 165, 165, 0.25);
+  color: rgb(0, 11, 90);
+}
+
 .field-box {
   display: flex;
   flex-direction: column;

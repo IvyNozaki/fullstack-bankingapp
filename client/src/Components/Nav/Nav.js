@@ -44,17 +44,18 @@ const Nav = () => {
           
           {contextData.isAuth &&
             <div className="navbar-container">
-              <div>
+              {/* <div>
                 {contextData.userData.username}
-              </div>
+              </div> */}
               <div className="usernav-link">
                 <button>
                   <Link to="/profile">
                     <acronym title="Profile">
-                      <img src={profileicon} className="usernav-icons" alt="profileicon"/>
+                      <img src={profileicon} className="usernav-icons"/>
                     </acronym>
                   </Link>
                 </button>
+                {contextData.userData.username}
               </div>
               <div className="usernav-link">
                 <button onClick={handleLogOut}>
@@ -81,10 +82,6 @@ const Nav = () => {
 
         </div>
       </header>
-
-      <div className="logo-container">
-        <img src={banklogo} className="bank-logo" alt="banklogo" />
-      </div>
       
       <div className={styles["maincard"]}>
         <Switch>

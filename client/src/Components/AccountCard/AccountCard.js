@@ -30,7 +30,7 @@ const AccountCard = ({ id, acctName, balance }) => {
         </button>
       </Link>
       <Link to={close_url}>
-        <button className="main-btn closeacct-btn">
+        <button className="main-btn">
           CLOSE Account
         </button>
       </Link>

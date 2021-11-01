@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useLocation, useHistory } from "react-router-dom";
+import { useParams, useLocation, useHistory, Link } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import styles from "./TransactionForm.module.css";
 import { Default } from 'react-awesome-spinners'
@@ -83,7 +83,13 @@ const TransactionForm = () => {
     <>
     {!showSuccess &&
     <form onSubmit={handleTransation} className={styles["ca"]}>
+      <div className={styles["close-btn"]}>
+        <acronym title="close window">
+          <Link to="/profile">&#215;</Link>
+        </acronym>
+      </div>
       <h1>{tranType}</h1>
+      
       <h3>{`Current Balance: $${balance}`}</h3>
       <div className={notValid ? styles["warning"] : styles["field-box"]}>
         <label htmlFor="amount">Amount:</label>

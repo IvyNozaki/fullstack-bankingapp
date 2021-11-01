@@ -54,3 +54,13 @@
   border-right: 2px solid rgba(174, 183, 255, 0.25);
   font-size: 1.5rem;
 }
+
+.login input[type="submit"]:hover,
+.google-btn:hover {
+  cursor: pointer;
+  background: rgba(216, 177, 60, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(165, 165, 165, 0.25);
+  border-right: 2px solid rgba(165, 165, 165, 0.25);
+  color: rgb(0, 11, 90);
+}

@@ -63,17 +63,24 @@ const Home = () => {
         <div className="mini-card">
           <h2>Bank Cards</h2>
           <div className="servicecard bankcard-img">
-            <p>Separate yourself from the hassle with our array of cards specialized for your needs and lifestyle.</p>
+            <p>
+              Separate yourself from the hassle with our array of cards specialized for your needs and lifestyle.
+            </p>
           </div>
-          <button>Learn more</button>
+          <Link to="/services">
+            <button className="learnmore-btn">LEARN MORE</button>
+          </Link>
         </div>
 
         <div className="mini-card">
           <h2>Teen Credit</h2>
           <div className="servicecard teencred-img">
-            <p>Adulting is hard but it doesn't have to be. Teach your teen about how credit works without the scare.</p>
+            <p>
+              Adulting is hard but it doesn't have to be. Teach your teen about how credit works without the scare.</p>
           </div>
-          <button>Learn more</button>
+          <Link to="/services">
+            <button className="learnmore-btn">LEARN MORE</button>
+          </Link>
         </div>
 
         <div className="mini-card">
@@ -81,7 +88,10 @@ const Home = () => {
           <div className="servicecard moneytrans-img">
             <p>Sending money is just a click away. We know life can get in the way but our piggies fetch 24/7 just for you!</p>
           </div>
-          <button>Learn more</button>
+          <Link to="/services">
+            <button className="learnmore-btn">LEARN MORE</button>
+          </Link>
+
         </div>
       </div>
       

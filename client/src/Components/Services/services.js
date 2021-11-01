@@ -36,7 +36,7 @@ const Services = () => {
 
             <h2 className="modal-h2">PIGGYBANK+:</h2>
             <p className="modal-p">Our PiggyBank+ program allows you to connect with your credit card/s to help consolidate your debt. We work with you to personalized a payment that fits your need. Personalized payment plans are flexible since life is unpredictable. Work with our team of highly trained advisors on how to get your life back on track.</p>
-
+            
             <h2 className="modal-h2">PIGGYTEEN:</h2>
             <p className="modal-p">All PiggyTeen accounts come with our free PiggyCredit101 monthly subscription. PiggyCredit101 subscriptions offers a monthly statement that tracks account activity and how it affects credit. PiggyCredit101 can be cancelled and resubscribed at any time. *Standard mailing fees are covered by PiggyBank, since free means FREE. We also offer paperless option through mobile banking.
             All PiggyTeen cards are personalized with your child’s legal name to make the experience as real as it should be. State issued IDs are required to open a PiggyTeen card account. Please see your state’s guidelines for obtaining a state issued ID for your child.</p>

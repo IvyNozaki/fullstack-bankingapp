@@ -21,7 +21,6 @@
 }
 
 .services-img {
-  /* border: 1px solid purple; */
   width: 30vw;
 }
 
@@ -100,4 +99,16 @@
 }
 .modal-p {
   font-size: small;
+}
+
+.Service-page button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: rgba(0, 11, 90, 0.7);
+}
+
+.Service-page button:hover {
+  cursor: pointer;
+  color: rgb(216, 177, 60);
 }

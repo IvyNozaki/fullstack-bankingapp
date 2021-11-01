@@ -26,6 +26,15 @@
   font-size: 1.5rem;
 }
 
+.ca input[type="submit"]:hover {
+  cursor: pointer;
+  background: rgba(216, 177, 60, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(165, 165, 165, 0.25);
+  border-right: 2px solid rgba(165, 165, 165, 0.25);
+  color: rgb(0, 11, 90);
+}
+
 .ca h3 {
   text-align: center;
 }
@@ -61,4 +70,18 @@
   background: pink;
   background: #7fffd4;
   font-size: 1.5rem;
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+  font-size: 2.5rem;
+}
+
+acronym {
+  text-decoration: none;
 }
