@@ -2,10 +2,13 @@ import React, { useState, useContext } from "react";
 import AuthContext from "../../Store/auth-context";
 import { useHistory } from "react-router-dom";
 import styles from "./CreateAccount.module.css";
+import { Default } from "react-awesome-spinners";
 
 const CreateAcct = () => {
   const [acctName, setAcctName] = useState("");
   const [balance, setBalance] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
 
   const contextData = useContext(AuthContext);
   
@@ -21,15 +24,18 @@ const CreateAcct = () => {
   
   const handleAcctOpen = (e) => {
     e.preventDefault();
-    
+    setShowSuccess(true);
+    setSuccessMsg("New Piggy adopted");
     contextData.onCreateAcct(acctName, balance, localStorage.getItem("userID"));
 
-    setAcctName("");
-    setBalance("");
-    history.push("/profile");
+    setTimeout(() => {
+      history.push("/profile");
+    }, 3000);
   };
 
   return (
+    <>
+    {!showSuccess &&
     <form onSubmit={handleAcctOpen} className={styles["ca"]}>
       <h1>Open a new account:</h1>
       <div className={styles["field-box"]}>
@@ -63,6 +69,15 @@ const CreateAcct = () => {
         value="Create Account" 
       />
     </form>
+    }
+    
+    {showSuccess &&
+      <div className={styles["success"]}>
+        <h1>{successMsg}</h1>
+        <Default />
+      </div>
+    }
+    </>
   )
 };
 

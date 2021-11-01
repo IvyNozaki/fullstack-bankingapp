@@ -39,3 +39,10 @@
   border-right: 2px solid rgba(183, 215, 255, 0.5);
   font-size: 1.5rem;
 }
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

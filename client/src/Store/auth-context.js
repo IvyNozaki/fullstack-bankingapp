@@ -86,7 +86,7 @@ export const AuthProvider = ({ children }) => {
     setIsAuth(true);
     setIsLoggedIn(true);
   }
-
+  
   // Logout Handler
   const logoutHandler = async () => {
     try {

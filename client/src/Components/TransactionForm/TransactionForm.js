@@ -2,7 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useLocation, useHistory, Link } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import styles from "./TransactionForm.module.css";
-import { Default } from 'react-awesome-spinners'
+// import { Default } from 'react-awesome-spinners'
+import depositgif from "../../assets/deposit.gif";
+import spin from "../../assets/depositspin.gif";
+import withdrawing from "../../assets/withdrawing.gif";
+import withdrawn from "../../assets/withdrawn.gif";
+
 
 const TransactionForm = () => {
   const [acctID, setAcctID] = useState("");
@@ -12,6 +17,8 @@ const TransactionForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [notValid, setNotValid] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("Depositing...");
+  const [imgSrc, setImgSrc] = useState(spin);
   
   const { id } = useParams();
   const location = useLocation();
@@ -68,12 +75,27 @@ const TransactionForm = () => {
       setNotValid(true);
     } else {
       contextData.onTransact(amount, tranType, acctID, localStorage.getItem("userID"));
-      setShowSuccess(true);
+
+      if (tranType === "Withdraw") {
+        setImgSrc(withdrawing);
+        setSuccessMsg("Withdrawing...")
+        setShowSuccess(true);
+        setTimeout(() => {
+          setSuccessMsg("Complete!");
+          setImgSrc(withdrawn);
+        }, 2500);
+      } else if (tranType === "Deposit") {
+        setShowSuccess(true);
+        setTimeout(() => {
+          setSuccessMsg("Complete!");
+          setImgSrc(depositgif);
+        }, 2500);
+      }
       
       setTimeout(() => {
         clearState();
         history.push("/profile");
-      }, 1500);
+      }, 5000);
     }
   };
   
@@ -114,12 +136,10 @@ const TransactionForm = () => {
     }
     
     {showSuccess && 
-      <>
-        <h1>{`${tranType} Successful!`}</h1>
-        <Default 
-          color={"#b7d7ff80"}
-        />
-      </>
+      <div className={styles["success"]}>
+        <h1>{successMsg}</h1>
+        <img src={imgSrc} alt="" />
+      </div>
     }
     </>
   )

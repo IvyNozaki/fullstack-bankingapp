@@ -100,3 +100,14 @@
 acronym {
   text-decoration: none;
 }
+
+.success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.success img {
+  width: 200px;
+}

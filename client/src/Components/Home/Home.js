@@ -27,7 +27,7 @@ const Home = () => {
 
     getReviews();
   }, [pathname])
-
+  
   return (
     <>
       <div className="secondary-card home-welcome">
