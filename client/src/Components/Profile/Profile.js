@@ -26,7 +26,7 @@ const Profile = () => {
             <h2>{`Total Funds: $${userInfo.totalBalance}`}</h2>
             <p>Let's go and play with what you've got!</p>
           </div>
-
+          
           <div className="secondary-card account-list">
             {userInfo.accounts.map(acct => {
               return (

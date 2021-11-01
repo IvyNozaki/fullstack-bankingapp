@@ -10,7 +10,7 @@ const TransactionForm = () => {
   const [amount, setAmount] = useState(0);
   const [balance, setBalance] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
-  const [notValid, setNotValid] = useState(false);
+  const [notValid, setNotValid] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
   
   const { id } = useParams();
@@ -62,16 +62,14 @@ const TransactionForm = () => {
   
   const handleTransation = (e) => {
     e.preventDefault();
-
+    
     if (tranType === "Withdraw" && amount > balance) {
       setErrorMsg("Not enough funds in account");
       setNotValid(true);
-    } 
-
-    if (!notValid) {
+    } else {
       contextData.onTransact(amount, tranType, acctID, localStorage.getItem("userID"));
       setShowSuccess(true);
-
+      
       setTimeout(() => {
         clearState();
         history.push("/profile");
@@ -91,7 +89,7 @@ const TransactionForm = () => {
       <h1>{tranType}</h1>
       
       <h3>{`Current Balance: $${balance}`}</h3>
-      <div className={notValid ? styles["warning"] : styles["field-box"]}>
+      <div className={styles["field-box"]}>
         <label htmlFor="amount">Amount:</label>
         <input 
           type="number" 
@@ -106,10 +104,11 @@ const TransactionForm = () => {
       </div>
 
       <p>{errorMsg}</p>
-
+      
       <input 
         type="submit" 
-        value="Submit" 
+        value="Submit"
+        disabled={notValid}
       />
     </form>
     }

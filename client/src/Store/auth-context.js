@@ -21,11 +21,12 @@ const AuthContext = createContext({
 export const AuthProvider = ({ children }) => {
   const existingAuth = Boolean(localStorage.getItem("isAuth") || "");
   const existingLogin = Boolean(localStorage.getItem("isLoggedIn") || "");
+  const existingUserData = JSON.parse(localStorage.getItem("userData")) || {};
   
   // State
   const [ isAuth, setIsAuth ] = useState(existingAuth);
   const [ isLoggedIn, setIsLoggedIn ] = useState(existingLogin);
-  const [ userData, setUserData ] = useState({});
+  const [ userData, setUserData ] = useState(existingUserData);
   
   // Login Handler
   const loginHandler = async (email, password) => {
@@ -48,6 +49,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("isLoggedIn", 1);
       localStorage.setItem("isAuth", 1);
       localStorage.setItem("userID", data["_id"]);
+      localStorage.setItem("userData", JSON.stringify(data));
     } catch (err) {
       console.log(err);
     }
@@ -100,6 +102,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("isAuth");
       localStorage.removeItem("userID");
+      localStorage.removeItem("userData");
     } catch (err) {
       console.log(err);
     }

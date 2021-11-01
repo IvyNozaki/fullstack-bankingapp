@@ -17,7 +17,6 @@ import { Route, Switch, Link, useHistory } from "react-router-dom";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 // images
-import banklogo from '../../assets/banklogo.svg';
 import profileicon from '../../assets/profile.icon.svg';
 import logouticon from '../../assets/logout.icon.svg';
 import styles from "./Nav.module.css";
@@ -44,14 +43,11 @@ const Nav = () => {
           
           {contextData.isAuth &&
             <div className="navbar-container">
-              {/* <div>
-                {contextData.userData.username}
-              </div> */}
               <div className="usernav-link">
                 <button>
                   <Link to="/profile">
                     <acronym title="Profile">
-                      <img src={profileicon} className="usernav-icons"/>
+                      <img src={profileicon} className="usernav-icons" alt="piggybank background"/>
                     </acronym>
                   </Link>
                 </button>

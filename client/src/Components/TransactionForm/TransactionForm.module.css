@@ -35,6 +35,23 @@
   color: rgb(0, 11, 90);
 }
 
+.ca input[type="submit"]:disabled {
+  opacity: 0.75;
+}
+
+.ca input[type="submit"]:disabled:hover {
+  opacity: 0.75;
+  cursor: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(0, 11, 90);
+  color: white;
+  border: 2px solid rgba(174, 183, 255, 0.8);
+  border-bottom: 2px solid rgba(174, 183, 255, 0.25);
+  border-right: 2px solid rgba(174, 183, 255, 0.25);
+  font-size: 1.5rem;
+}
+
 .ca h3 {
   text-align: center;
 }
@@ -67,8 +84,6 @@
   padding: 10px;
   border-radius: 10px;
   border: 2px solid red;
-  background: pink;
-  background: #7fffd4;
   font-size: 1.5rem;
 }
 
