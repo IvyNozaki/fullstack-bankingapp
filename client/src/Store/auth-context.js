@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   // Login Handler
   const loginHandler = async (email, password) => {
     try {
-      const result = await fetch("/login", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" }
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
   // Sign up handler
   const signUpHandler = async (email, password, username) => {
     try {
-      const result = await fetch("/signup", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/signup", {
         method: "POST",
         body: JSON.stringify({ email, password, username }),
         headers: { "Content-Type": "application/json" }
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
   // Logout Handler
   const logoutHandler = async () => {
     try {
-      const response = await fetch("/logout");
+      const response = await fetch("https://ivynozaki-piggybank.herokuapp.com/logout");
 
       const data = await response.json();
 
@@ -124,7 +124,7 @@ export const AuthProvider = ({ children }) => {
   // Get User Info
   const getUserInfo = async () => {
     try {
-      const response = await fetch("/profile");
+      const response = await fetch("https://ivynozaki-piggybank.herokuapp.com/profile");
       
       const data = await response.json();
   
@@ -154,7 +154,7 @@ export const AuthProvider = ({ children }) => {
   // Create Account
   const createAcctHandler = async (acctName, balance, id) => {
     try {
-      const result = await fetch("/account/open", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/account/open", {
         method: "POST",
         body: JSON.stringify({ acctName, balance, id }),
         headers: { "Content-Type": "application/json" }
@@ -174,7 +174,7 @@ export const AuthProvider = ({ children }) => {
   // Google login
   const googleLoginHandler = async (email, password) => {
     try {
-      const result = await fetch("/login", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" }
@@ -199,7 +199,7 @@ export const AuthProvider = ({ children }) => {
   // Google Signup
   const googleSignupHandler = async (email, password, username) => {
     try {
-      const result = await fetch("/signup", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/signup", {
         method: "POST",
         body: JSON.stringify({ email, password, username }),
         headers: { "Content-Type": "application/json" }
@@ -223,7 +223,7 @@ export const AuthProvider = ({ children }) => {
 
   // Deposit and Withdraw action
   const transactionHandler = async (amount, tranType, acctID, id) => {
-    let transPath = "/account/" + tranType.toLowerCase();
+    let transPath = "https://ivynozaki-piggybank.herokuapp.com/account/" + tranType.toLowerCase();
     
     try {
       const result = await fetch(transPath, {
@@ -252,7 +252,7 @@ export const AuthProvider = ({ children }) => {
   // Closing an account
   const closeAcctHandler = async (acctID, id) => {
     try {
-      const result = await fetch("/account/close", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/account/close", {
         method: "POST",
         body: JSON.stringify({ acctID, id }),
         headers: { "Content-Type": "application/json" }
@@ -278,12 +278,12 @@ export const AuthProvider = ({ children }) => {
   // Create new Review
   const reviewHandler = async (revName, title, message) => {
     try {
-      const result = await fetch("/reviews", {
+      const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/reviews", {
         method: "POST",
         body: JSON.stringify({ revName, title, message }),
         headers: { "Content-Type": "application/json" }
       })
-
+      
       const data = await result.json();
 
       console.log(data);
@@ -291,7 +291,7 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
   };
-
+  
   const authContextValue = {
     isAuth: isAuth,
     isLoggedIn: isLoggedIn,

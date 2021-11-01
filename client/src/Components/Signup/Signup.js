@@ -62,8 +62,8 @@ const Signup = () => {
     console.log(res)
     const email = res?.profileObj.email;
     const password = res?.tokenId;
-
-    let emailIndex = email.search("@") - 1;
+    
+    let emailIndex = email.search("@");
 
     let username = email.substring(0, emailIndex)
     try {

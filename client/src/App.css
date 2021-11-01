@@ -54,12 +54,11 @@ h3 {
   bottom: 0px;
   left: 0px;
   height: 100vh;
-  background-image: url("./assets/banklogo.svg");
+  background-image: url("./assets/banklogo.lined.svg");
   background-size: 30%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100% 100%;
-  opacity: 50%;
 }
 
 /* BANK LOGO */
@@ -69,13 +68,6 @@ h3 {
   right: 0px;
   bottom: -80px;
 }
-
-/* .bank-logo {
-  z-index: 1;
-  height: 450px;
-  width: 450px;
-  opacity: 30%;
-} */
 
 /* HEADER & USER NAVIGATION */
 .header-container {
@@ -163,18 +155,6 @@ h3 {
 }
 
 /* CARDS */
-/* .maincard {
-  z-index: 5;
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  flex-flow: column nowrap;
-  margin: 0 auto;
-  margin-bottom: 200px;
-  align-items: center;
-} */
-
 .secondary-card {
   z-index: 6;
   display: flex;

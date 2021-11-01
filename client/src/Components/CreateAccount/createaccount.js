@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../../Store/auth-context";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import styles from "./CreateAccount.module.css";
 import { Default } from "react-awesome-spinners";
 
@@ -27,7 +27,7 @@ const CreateAcct = () => {
     setShowSuccess(true);
     setSuccessMsg("New Piggy adopted");
     contextData.onCreateAcct(acctName, balance, localStorage.getItem("userID"));
-
+    
     setTimeout(() => {
       history.push("/profile");
     }, 3000);
@@ -37,6 +37,11 @@ const CreateAcct = () => {
     <>
     {!showSuccess &&
     <form onSubmit={handleAcctOpen} className={styles["ca"]}>
+        <div className={styles["x-btn"]}>
+        <acronym title="close window">
+          <Link to="/profile">&#215;</Link>
+        </acronym>
+      </div>
       <h1>Open a new account:</h1>
       <div className={styles["field-box"]}>
         <label htmlFor="account-name">Account Name:</label>

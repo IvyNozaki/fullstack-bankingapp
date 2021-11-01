@@ -15,7 +15,7 @@ const Home = () => {
 
     const getReviews = async () => {
       try {
-        const result = await fetch("/reviews");
+        const result = await fetch("https://ivynozaki-piggybank.herokuapp.com/reviews");
   
         const data = await result.json();
   

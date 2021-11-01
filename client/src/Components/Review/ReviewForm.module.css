@@ -69,3 +69,13 @@
   height: 200px;
   margin: 2rem 0;
 }
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 30px;
+  height: 30px;
+  font-size: 2.5rem;
+}

@@ -220,37 +220,18 @@
   background: url("../../assets/plus.png");
   background-position: center;
   background-size: cover;
-  opacity: 30%;
   cursor: pointer;
 }
 
-.add-btn:hover {
+/* .add-btn:hover {
   opacity: 80%;
-}
-
-.dashboard-end {
-  /* display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 5%; */
-}
-
-.dashboard-btn {
-  /* width: 20vw;
-  height: 5vh;
-  margin-bottom: 20px;
-  font-size: large; */
-}
+} */
 
 .learnmore-btn {
   align-self: center;
   border-radius: 10px;
   height: 40px;
   width: 50%;
-  /* background: whitesmoke;
-  color: rgb(0, 11, 90); */
   background: rgb(0, 11, 90);
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.35);

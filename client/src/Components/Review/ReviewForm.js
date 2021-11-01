@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import AuthContext from "../../Store/auth-context";
 import styles from "./ReviewForm.module.css";
 
@@ -41,6 +41,11 @@ const ReviewForm = () => {
 
   return (
     <form onSubmit={handleReview} className={styles.review}>
+        <div className={styles["close-btn"]}>
+        <acronym title="close window">
+          <Link to="/profile">&#215;</Link>
+        </acronym>
+      </div>
       <h1>Leave a Review</h1>
 
       <div className={styles["field-box"]}>
