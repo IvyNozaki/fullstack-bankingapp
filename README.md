@@ -159,3 +159,15 @@ Logout button is only available to users who are logged in. Clicking the logout 
 - JavaScript
 - React
 - React Router
+- React Google Login
+- MongoDB
+- Mongoose
+- NodeJs
+- Express
+- Json Web Token (JWT)
+- Bcrypt
+- Cookie Parser
+- cors
+- dotenv
+- ejs
+- validator
